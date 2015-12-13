@@ -1,0 +1,21 @@
+{
+  "name": "browserify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "browserify": "latest",
+    "watchify": "latest",
+    "gulp": "3.7.0",
+    "vinyl-source-stream": "latest"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

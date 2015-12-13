@@ -1,0 +1,10 @@
+﻿var numberFunc = require('./number-function.js');
+var stringFunc = require('./string-function.js');
+var aa;
+var bb = null;
+var cc = 1;
+console.log(numberFunc.add(9, 3));
+console.log(numberFunc.minus(9, 3));
+console.log(numberFunc.multiply(9, 3));
+console.log(numberFunc.divide(9, 3));
+console.log(stringFunc.concat('Hello', 'world'));

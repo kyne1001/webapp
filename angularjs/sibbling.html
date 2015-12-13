@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Broadcasting</title>
+  <script src="angular.min.js"></script>
+  <script>
+    var app = angular.module('sharing', [])
+      .controller('parent', parentCtrl)
+      .controller('child', childCtrl)
+      .controller('anotherChild', anotherChildCtrl);
+
+    function parentCtrl($scope) {
+      $scope.$on('childMsg', function(event, args) {
+        $scope.childMsg = args.message;
+        $scope.$broadcast('sibbling', args);
+      })
+    }
+
+    function childCtrl($scope) {
+      $scope.tellParent = function(msg) {
+        $scope.$emit('childMsg', { message: msg});
+      }
+    }
+
+    function anotherChildCtrl($scope) {
+      $scope.$on('sibbling', function(event, args) {
+        $scope.childMsg = args.message;
+      })
+    }
+
+  </script>
+</head>
+<body ng-app="sharing">
+  <div ng-controller="parent" style="border:2px solid; padding:5px;">
+    <h3>This is parent controller, child has just said "{{childMsg}}".</h3>
+    <div ng-controller="child" style="border:2px solid; padding:5px;">
+      <h4>This is child controller, I say:</h4>
+      <input type="text" ng-model="msg">
+      <input type="button" value="Tell parent" ng-click="tellParent(msg)">
+    </div>
+    <p></p>
+    <div ng-controller="anotherChild" style="border:2px solid; padding:5px;">
+      <h4>This is another child controller, my sibbling has just said "{{childMsg}}".</h4>
+    </div>
+  </div>
+</body>
+</body>
+</html>

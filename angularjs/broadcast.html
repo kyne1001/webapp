@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Broadcasting</title>
+  <script src="angular.min.js"></script>
+  <script>
+    angular.module('sharing', [])
+      .controller('grand', grandCtrl)
+      .controller('parent', parentCtrl)
+      .controller('child', childCtrl)
+      .controller('anotherParent', anotherParentCtrl)
+      .controller('anotherChild', anotherChildCtrl);
+
+    function grandCtrl($scope) {
+      $scope.tellChild = function(msg) {
+        $scope.$broadcast('grandMsg', { message: msg});
+      }
+    }
+
+    function parentCtrl($scope) {
+      $scope.$on('grandMsg', function(event, args) {
+        $scope.grandMsg = args.message;
+      })
+    }
+
+    function childCtrl($scope) {
+      $scope.$on('grandMsg', function(event, args) {
+        $scope.grandMsg = args.message;
+      })
+    }
+
+    function anotherParentCtrl($scope) {
+      $scope.$on('grandMsg', function(event, args) {
+        $scope.grandMsg = args.message;
+      })
+    }
+
+    function anotherChildCtrl($scope) {
+      $scope.$on('grandMsg', function(event, args) {
+        $scope.grandMsg = args.message;
+      })
+    }
+  </script>
+</head>
+<body ng-app="sharing">
+  <div ng-controller="grand" style="border:2px solid; padding:5px;">
+    <h3>This is grand controller, I say:.</h3>
+    <input type="text" ng-model="msg">
+    <input type="button" value="Tell child" ng-click="tellChild(msg)">
+    <p></p>
+
+    <div ng-controller="parent" style="border:2px solid; padding:5px;">
+      <h3>This is parent controller, grand has just said "{{grandMsg}}".</h3>
+
+      <div ng-controller="child" style="border:2px solid; padding:5px;">
+        <h4>This is child controller, grand has just said "{{grandMsg}}".</h4>
+      </div>
+    </div>
+    <p></p>
+    <div ng-controller="anotherParent" style="border:2px solid; padding:5px;">
+      <h3>This is another parent controller, grand has just said "{{grandMsg}}".</h3>
+
+      <div ng-controller="anotherChild" style="border:2px solid; padding:5px;">
+        <h4>This is another child controller, grand has just said "{{grandMsg}}".</h4>
+      </div>
+    </div>
+  </div>
+</body>
+</body>
+</html>

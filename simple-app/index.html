@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/styles/bootstrap.min.css">
+</head>
+<body ng-app="simple-app">
+  <div class="container col-xs-8 col-xs-offset-4">
+    <nav ng-include="'./app/common/nav.html'"></nav>
+    <div></div>
+    <div ui-view>
+      
+    </div>
+    <footer ng-include="'./app/common/footer.html'"></footer>
+  </div>
+  <!-- Javascript -->
+  <script type="text/javascript" src="./assets/libs/angular.min.js"></script>
+  <script type="text/javascript" src="./assets/libs/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="./app/app.js"></script>
+</body>
+</html>

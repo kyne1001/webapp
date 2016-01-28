@@ -1,0 +1,5 @@
+https://medium.com/javascript-scene/what-is-webassembly-the-dawn-of-a-new-era-61256ec5a8f6#.xjhzwon2q
+http://www.infragistics.com/community/blogs/dhananjay_kumar/archive/2015/06/11/understanding-scopes-in-angularjs-custom-directives.aspx
+http://stackoverflow.com/questions/14841115/is-it-possible-to-use-jasmines-tohavebeencalledwith-matcher-with-a-regular-expr
+https://www.youtube.com/watch?v=QETUuZ27N0w&feature=iv&src_vid=0r5QvzjjKDc&annotation_id=annotation_2188509735
+https://addyosmani.com/resources/essentialjsdesignpatterns/book/

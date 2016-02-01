@@ -1,18 +1,25 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
-var MongoClient = mongo.MongoClient;
 
 var app = express();
 
-// Retrieve
-var MongoClient = require('mongodb').MongoClient;
+app.use(bodyParser.json());
 
-// Connect to the db
-MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
-  if(!err) {
-    console.log("We are connected");
-  }
+// Router
+app.use('/', require('./app/routes'));
+
+app.use(function (req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// Start server
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
 });
 
 module.exports = app;

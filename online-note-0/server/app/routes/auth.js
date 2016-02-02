@@ -9,7 +9,7 @@ var auth = {
     if (username === '' || password === '') {
       res.status(401);
       res.json({
-        "status": 404,
+        "status": 401,
         "message": "Invalid credentials"
       });
       return;
@@ -35,6 +35,7 @@ var auth = {
 function genToken(user) {
   var expires = expiresIn(7); // 7 days
   var token = jwt.encode({
+    id: user._id,
     exp: expires
   }, require('../config/secret')());
 

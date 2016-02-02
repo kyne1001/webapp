@@ -41,7 +41,7 @@ function genToken(user) {
   return {
     token: token,
     expires: expires,
-    user: user
+    user: user.username
   };
 }
  

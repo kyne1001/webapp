@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
+var constants = require("./app/constants");
 var db = null;
 
 var app = express();

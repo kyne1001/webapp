@@ -1,10 +1,11 @@
 var jwt = require('jwt-simple');
+var constants = require("../constants");
 
 var auth = {
   login: function(req, res) {
     var username = req.body.username || '';
     var password = req.body.password || '';
-    var collection = req.db.collection('users');
+    var collection = req.db.collection(constants.USERS);
 
     if (username === '' || password === '') {
       res.status(401);

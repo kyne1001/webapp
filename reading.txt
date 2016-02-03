@@ -4,3 +4,20 @@ http://stackoverflow.com/questions/14841115/is-it-possible-to-use-jasmines-tohav
 https://www.youtube.com/watch?v=QETUuZ27N0w&feature=iv&src_vid=0r5QvzjjKDc&annotation_id=annotation_2188509735
 https://addyosmani.com/resources/essentialjsdesignpatterns/book/
 http://blog.mongodb.org/post/87200945828/6-rules-of-thumb-for-mongodb-schema-design-part-1
+
+#### Data ####
+[
+  '{{repeat(10, 10)}}',
+  {
+    title: '{{company().toUpperCase()}}',
+    body: '{{lorem(1, "paragraphs")}}',
+    registered: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+    tags: [
+      '{{repeat(2)}}',
+      '{{lorem(1, "words")}}'
+    ],
+    userId: 'ObjectId("56af1ae633065071769193b4")'
+  }
+]
+
+{ "_id" : ObjectId("56af1ae633065071769193b4"), "username" : "quanlieu", "password" : "132456", "realname" : "Lieu Chi Quan", "gender" : true, "yob" : 1988, "role" : "user" }

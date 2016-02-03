@@ -6,7 +6,7 @@ var auth = {
     var username = req.body.username || '';
     var password = req.body.password || '';
     var collection = req.db.collection(constants.USERS);
-
+    
     if (username === '' || password === '') {
       res.status(401);
       res.json({

@@ -22,7 +22,7 @@ module.exports = function(req, res, next) {
       res.status(500);
       res.json({
         "status": 500,
-        "message": "Oops something went wrong",
+        "message": "Invalid Token",
         "error": err
       });
     }

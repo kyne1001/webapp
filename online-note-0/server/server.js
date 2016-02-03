@@ -23,6 +23,11 @@ promise.then(function (db) {
 
   app.use('/', require('./app/routes'));
 
+  app.use(function (err, req, res, next) {
+    res.status(400);
+    res.send('Unknow error!');
+  });
+
   // Start server
   app.set('port', process.env.PORT || 3000);
 

@@ -39,7 +39,6 @@ var notes = {
  
   create: function(req, res) {
     var note = req.body.note;
-    console.log(req.body.title);
     if (!note || !validateNote(note)) {
       res.status(400);
       res.json({
@@ -68,21 +67,65 @@ var notes = {
       };
     })
 
-
   },
  
   update: function(req, res) {
-    res.send('Update');
+    var note = req.body.note;
+    if (!note || !validateNote(note)) {
+      res.status(400);
+      res.json({
+        "status": 400,
+        "message": "Missing field"
+      });
+      return;
+    }
+
+    var id = ObjectID(req.params['id']);
+    var collection = req.db.collection(constants.NOTES);
+
+    collection.update({_id: ObjectID(id)}, { $set: note }, function (err, result) {
+      if (err) {
+        res.status(500);
+        res.json({
+          "status": 500,
+          "message": "Database error, please contact site admin"
+        });
+      } else {
+        res.status(200);
+        res.json({
+          "status": 200,
+          "message": result
+        });
+      };
+    })
   },
  
   delete: function(req, res) {
-    res.send('Delete');
+    var id = ObjectID(req.params['id']);
+    var collection = req.db.collection(constants.NOTES);
+
+    collection.deleteOne({_id: ObjectID(id)}, function (err, result) {
+      if (err) {
+        res.status(500);
+        res.json({
+          "status": 500,
+          "message": "Database error, please contact site admin"
+        });
+      } else {
+        res.status(200);
+        res.json({
+          "status": 200,
+          "message": result
+        });
+      };
+    })
   }
 };
 
-validateNote = function (note) {
-  // Implement userId validation later
-  return Boolean(note.title);
+validateNote = function (note, isUpdate) {
+  // TODO: Should check more detail: field should/shouldn't have, check ID
+  var isValid = Boolean(note.title);
+  return isValid;
 }
 
 module.exports = notes;

@@ -24,6 +24,7 @@ promise.then(function (db) {
   app.use('/', require('./app/routes'));
 
   app.use(function (err, req, res, next) {
+    console.log(err);
     res.status(400);
     res.send('Unknow error!');
   });

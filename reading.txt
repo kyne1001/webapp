@@ -11,7 +11,7 @@ http://blog.mongodb.org/post/87200945828/6-rules-of-thumb-for-mongodb-schema-des
   {
     title: '{{company().toUpperCase()}}',
     body: '{{lorem(1, "paragraphs")}}',
-    registered: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+    date: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
     tags: [
       '{{repeat(2)}}',
       '{{lorem(1, "words")}}'

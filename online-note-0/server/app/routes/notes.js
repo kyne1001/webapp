@@ -38,7 +38,37 @@ var notes = {
   },
  
   create: function(req, res) {
-    res.send('Create');
+    var note = req.body.note;
+    console.log(req.body.title);
+    if (!note || !validateNote(note)) {
+      res.status(400);
+      res.json({
+        "status": 400,
+        "message": "Missing field"
+      });
+      return;
+    }
+
+    var collection = req.db.collection(constants.NOTES);
+    note.date = new Date();
+    note.userId = ObjectID(note.userId);
+    collection.insert(note, function (err, result) {
+      if (err) {
+        res.status(500);
+        res.json({
+          "status": 500,
+          "message": "Database error, please contact site admin"
+        });
+      } else {
+        res.status(200);
+        res.json({
+          "status": 200,
+          "message": result
+        });
+      };
+    })
+
+
   },
  
   update: function(req, res) {
@@ -49,5 +79,10 @@ var notes = {
     res.send('Delete');
   }
 };
- 
+
+validateNote = function (note) {
+  // Implement userId validation later
+  return Boolean(note.title);
+}
+
 module.exports = notes;

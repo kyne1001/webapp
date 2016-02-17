@@ -15,21 +15,23 @@ var auth = {
       });
       return;
     }
-    collection.findOne({username: username, password: password}, function (err, user) {
-      if (!user) {
-        res.status(401);
-        res.json({
-          "status": 401,
-          "message": "Invalid credentials"
-        });
-      } else {
-        res.status(200);
-        res.json(genToken(user));
-      }
+
+    var promise = auth.validate(username, password, collection);
+    promise.then(function success(doc) {
+      res.status(200);
+      res.json(genToken(doc));
+    }).catch(function error(err) {
+      res.status(401);
+      res.json({
+        "status": 401,
+        "message": "Invalid credentials"
+      });
     });
+  },
 
+  validate: function(username, password, collection) {
+    return collection.findOne({username: username, password: password});
   }
-
 }
 
 // private method

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./assets/styles/bootstrap.min.css">
 </head>
 <body ng-app="simple-app">
-  <div class="container col-xs-8 col-xs-offset-4">
+  <div class="container col-xs-10 col-xs-offset-1">
     <nav ng-include="'./app/common/nav.html'"></nav>
     <div></div>
     <div ui-view>
@@ -20,5 +20,10 @@
   <script type="text/javascript" src="./assets/libs/angular.min.js"></script>
   <script type="text/javascript" src="./assets/libs/angular-ui-router.min.js"></script>
   <script type="text/javascript" src="./app/app.js"></script>
+
+  <script type="text/javascript" src="./app/components/class.js"></script>
+  <script type="text/javascript" src="./app/services/class-service.js"></script>
+  <script type="text/javascript" src="./app/components/teacher.js"></script>
+  <script type="text/javascript" src="./app/services/teacher-service.js"></script>
 </body>
 </html>

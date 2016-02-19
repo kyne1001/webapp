@@ -4,6 +4,8 @@ http://stackoverflow.com/questions/14841115/is-it-possible-to-use-jasmines-tohav
 https://www.youtube.com/watch?v=QETUuZ27N0w&feature=iv&src_vid=0r5QvzjjKDc&annotation_id=annotation_2188509735
 https://addyosmani.com/resources/essentialjsdesignpatterns/book/
 http://blog.mongodb.org/post/87200945828/6-rules-of-thumb-for-mongodb-schema-design-part-1
+http://learninglaravel.net/lets-build-an-angularjs-app-with-browserify-and-gulp/link
+https://css-tricks.com/multiple-class-id-selectors/
 
 #### Data ####
 [

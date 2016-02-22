@@ -27,14 +27,14 @@ server.all('/*', function(req, res) {
 });
 
 // Dev task
-gulp.task('dev', function() {
+gulp.task('server', function() {
   // Start webserver
   server.listen(serverport);
   // Start live reload
   lrserver.listen(livereloadport);
-  // Run the watch task, to keep taps on changes
-  gulp.run('watch');
-});
+})
+
+gulp.task('dev', ['server', 'watch']);
 
 // JSHint task
 gulp.task('lint', function() {
@@ -77,5 +77,5 @@ gulp.task('styles', function() {
   .pipe(refresh(lrserver));
 });
 
-gulp.task('default', ['dev', 'watch']);
+gulp.task('default', ['dev']);
 gulp.task('build', ['lint', 'browserify', 'views', 'styles']);

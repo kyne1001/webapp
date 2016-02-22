@@ -17,17 +17,16 @@ var server = express();
 server.use(express.static('./dist'));
 // Redirects everything back to our index.html
 server.all('/*', function(req, res) {
-    res.sendFile('index.html', { root: 'dist' });
-});
-
-// Set up browserSync
-browserSync({
-  notify: false,
-  proxy: "http://localhost:" + serverport
+  res.sendFile('index.html', { root: 'dist' });
 });
 
 // Dev task
 gulp.task('server', function() {
+  browserSync({
+    notify: false,
+    proxy: "http://localhost:" + serverport
+  });
+
   server.listen(serverport);
 })
 

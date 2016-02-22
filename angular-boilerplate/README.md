@@ -15,3 +15,8 @@ $ gulp build
 ```sh
 $ gulp
 ```
+or
+
+```sh
+$ gulp dev
+```

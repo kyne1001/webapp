@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "angular": "^1.5.0",
+    "angular": "^1.5.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",
-    "connect-livereload": "^0.5.4",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.1",
@@ -15,9 +17,6 @@
     "gulp-sass": "^2.2.0",
     "jshint": "^2.9.1",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.11.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

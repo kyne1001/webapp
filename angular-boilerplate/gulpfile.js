@@ -60,7 +60,7 @@ gulp.task('watch', ['lint'], function() {
 
 // Views task
 gulp.task('views', function() {
-  gulp.src('app/index.html')
+  gulp.src('app/**/*.html')
   .pipe(gulp.dest('dist/'))
 });
 

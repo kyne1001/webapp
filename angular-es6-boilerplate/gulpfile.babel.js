@@ -56,19 +56,21 @@ gulp.task('browserify', function() {
 
 gulp.task('watch', ['lint'], function() {
   gulp.watch(['app/*.js', 'app/**/*.js'], ['lint', 'browserify', browserSync.reload]);
-  gulp.watch(['app/index.html', 'app/**/*.html'], ['views', browserSync.reload]);
-  gulp.watch(['app/assets/styles/*.scss'], ['styles', browserSync.reload]);
+  gulp.watch(['index.html', 'app/**/*.html'], ['views', browserSync.reload]);
+  gulp.watch(['assets/styles/*.scss'], ['styles', browserSync.reload]);
 });
 
 // Views task
 gulp.task('views', function() {
+  gulp.src('index.html')
+  .pipe(gulp.dest('dist/'));
   gulp.src('app/**/*.html')
-  .pipe(gulp.dest('dist/'))
+  .pipe(gulp.dest('dist/'));
 });
 
 // Styles task
 gulp.task('styles', function() {
-  gulp.src('app/assets/styles/*.scss')
+  gulp.src('assets/styles/app.scss')
   .pipe(sass({onError: function(e) { console.log(e); } }))
   .pipe(gulp.dest('dist/css/'))
 });

@@ -28,13 +28,7 @@ var modelWatcher = function() {
 var viewWatcher = function(els) {
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
-    el.addEventListener('keyup', function() {
-      var bindKey = el.getAttribute('data-bind');
-      dataBind.dirtyValues.push(bindKey);
-      dataBind.bindObj[bindKey] = el.value;
-    }, false);
-
-    el.addEventListener('keydown', function() {
+    el.addEventListener('input', function() {
       var bindKey = el.getAttribute('data-bind');
       dataBind.dirtyValues.push(bindKey);
       dataBind.bindObj[bindKey] = el.value;

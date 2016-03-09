@@ -53,6 +53,7 @@ var pubsub = {};
 var ajaxCall = new XMLHttpRequest();
 var ajaxStatus = document.getElementById('ajax-status');
 var ajaxResult = document.getElementById('ajax-result');
+var subscriptionStatus = document.getElementById('subscription-status');
 var jsonPlaceholder;
 
 // Subscribe to ajax call
@@ -62,11 +63,13 @@ function subscribeCallback(topic, data) {
 
 function subscribeToAjaxCall() {
   jsonPlaceholder = pubsub.subscribe('ajax-call-success', subscribeCallback);
+  subscriptionStatus.innerText = 'Subscribe status: Yes';
 }
 
 // Unsubscribe from ajax call
 function subscribeFromAjaxCall() {
   pubsub.unsubscribe(jsonPlaceholder);
+  subscriptionStatus.innerText = 'Subscribe status: No';
 }
 
 // Publish a successful ajax call

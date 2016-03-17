@@ -85,11 +85,13 @@ a {
   height: 150px;
   filter: grayscale(90%);
   -webkit-filter: grayscale(90%);
+	transition : filter 300ms linear;
+  -webkit-transition : -webkit-filter 300ms linear;
 }
 
 .gallery img:hover {
   filter: grayscale(0) brightness(1.4);;
-  -webkit-filter: grayscale(0) brightness(1.4);;
+  -webkit-filter: grayscale(0) brightness(1.4);
 }
 
 img.current {

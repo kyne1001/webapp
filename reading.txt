@@ -6,6 +6,9 @@ https://addyosmani.com/resources/essentialjsdesignpatterns/book/
 http://blog.mongodb.org/post/87200945828/6-rules-of-thumb-for-mongodb-schema-design-part-1
 http://learninglaravel.net/lets-build-an-angularjs-app-with-browserify-and-gulp/link
 https://css-tricks.com/multiple-class-id-selectors/
+http://www.michaelbromley.co.uk/blog/298/on-building-a-3d-game-with-css
+http://keithclark.co.uk/articles/creating-3d-worlds-with-html-and-css/
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
 
 #### Data ####
 [

@@ -4,17 +4,20 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="bootstrap.css">
-  </head>
-  <body>
-    <div ng-app="myApp" ng-controller="myCtrl">
-      <h4 ng-repeat="additionProblem in additionProblems" class="col-xs-3">
-        {{ additionProblem.a }} + {{ additionProblem.b }} + {{ additionProblem.c }} =
-      </h4>
-      <h4 ng-repeat="additionProblem in additionProblems" class="col-xs-3">
-        {{ additionProblem.a }} + {{ additionProblem.b }} + {{ additionProblem.c }} = {{ additionProblem.result }}
-      </h4>
-    </div>
     <script src="angular.js" charset="utf-8"></script>
     <script src="script.js" charset="utf-8"></script>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <div class="form-inline">
+      <h1 ng-repeat="problem in subtractionProblems" class="col-xs-6 form-group">
+        <span ng-bind-template="{{ problem.a }} - {{ problem.b }} - {{ problem.c }} ="></span>
+        <input type="number" class="form-control input-lg" ng-model="problem.input" size="2">
+        <img src="images/right.png" height="90" ng-show="checkMode === 'yggdrasil' && problem.result === problem.input">
+      </h1>
+    </div>
+    <p>&nbsp;</p>
+    <div class="text-center col-xs-6">
+      <input type="password" class="form-control input-lg" ng-model="checkMode">
+    </div>
   </body>
 </html>
